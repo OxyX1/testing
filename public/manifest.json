@@ -1,7 +1,7 @@
 {
-    "name": "Vanilla PWA",
-    "short_name": "PWA",
-    "description": "A Progressive Web App with vanilla JavaScript.",
+    "name": "oxyum games",
+    "short_name": "oxygames",
+    "description": "A app made for entertainment.",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
