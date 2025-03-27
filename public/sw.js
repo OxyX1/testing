@@ -1,40 +1,21 @@
-const CACHE_NAME = 'pwa-cache-v1';
-const urlsToCache = [
-    '/',
-    '/index.html',
-    '/style.css',
-    '/sketch.js',
-    '/manifest.json',
-];
-
-// Install event (cache assets)
-self.addEventListener('install', event => {
+self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(urlsToCache))
-            .then(self.skipWaiting())
+        caches.open('possumjs-cache').then((cache) => {
+            return cache.addAll([
+                '/',
+                '/index.html',
+                '/sketch.js',
+                '/style.css',
+                'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js'
+            ]);
+        })
     );
 });
 
-// Fetch event (serve cached content)
-self.addEventListener('fetch', event => {
+self.addEventListener('fetch', (event) => {
     event.respondWith(
-        caches.match(event.request)
-            .then(response => response || fetch(event.request))
-    );
-});
-
-// Activate event (clean old caches)
-self.addEventListener('activate', event => {
-    event.waitUntil(
-        caches.keys().then(keys =>
-            Promise.all(
-                keys.map(key => {
-                    if (key !== CACHE_NAME) {
-                        return caches.delete(key);
-                    }
-                })
-            )
-        )
+        caches.match(event.request).then((cachedResponse) => {
+            return cachedResponse || fetch(event.request);
+        })
     );
 });
