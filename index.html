@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PWA Testing</title>
     <meta name="theme-color" content="#141414">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="/src/master.css">
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="images/oxy.png">
+
+    <!-- PWA Manifest & Icons -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/images/oxy.png">
+    <link rel="apple-touch-icon" href="/images/oxy-512.png">
 </head>
+
 <body>
-    <p>pwa testing!</p>
+    <p>PWA Testing!</p>
+
+    <!-- Fallback for No JavaScript -->
+    <noscript>
+        <p style="color: red;">⚠️ JavaScript is required for this application to work properly.</p>
+    </noscript>
+
+    <!-- Scripts -->
     <script src="/src/index.js"></script>
 </body>
+
 </html>
