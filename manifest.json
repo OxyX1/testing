@@ -1,0 +1,13 @@
+{
+    "name": "PWA TEST APP",
+    "short_name": "PWATA",
+    "start_url": ".",
+    "background_color": "#25252525",
+    "theme_color": "#141414",
+    "display": "standalone",
+    "icons": [
+        {
+            "source": "images/oxy.png"
+        }
+    ]
+}
